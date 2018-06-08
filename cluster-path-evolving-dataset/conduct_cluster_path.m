@@ -7,17 +7,18 @@ num_level = s_hyp.num_level;
 
 %begin solving
 if d>2
-    [coeff,score,latent] = pca(A);
+    [coeff,score,~] = pca(A);
 end
 
 X=[];
+alpha = s_hyp.alpha;
 for i=1:num_level
     
-    s_hyp.alpha = (s_hyp.step + s_hyp.step_increase)*s_hyp.alpha;
+    s_hyp.alpha = (s_hyp.step + s_hyp.step_increase)*alpha;
     s_hyp = unware_regularized_convex_clustering(s_hyp);
     
     %centering X3 in order to draw
-    X_temp = s_hyp.X- repmat(mean(s_hyp.X),n,1);
+    X_temp = s_hyp.X;
     X = [X; X_temp];
     
     if i==num_level
@@ -28,7 +29,7 @@ for i=1:num_level
         end
         s_hyp.centers = centers;
     end
-    
+        
     
     %draw result
     %draw_pixel_clusters( s_hyp )

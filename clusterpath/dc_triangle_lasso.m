@@ -22,7 +22,7 @@ subject to
 cvx_end
 %recover X
 X = reshape(A,n*d,1) -0.5*transpose(kron(eye(d),Q))*reshape(lambda,m*d,1);
-%X = reshape(X,n,d);
+X = reshape(X,n,d);
 
 
 %to verify our new closed form

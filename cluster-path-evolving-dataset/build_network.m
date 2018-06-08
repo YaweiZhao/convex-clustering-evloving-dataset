@@ -16,8 +16,8 @@ for i=1:n-1
             
             %weight_matrix(i,distance_id(l)) = exp(-1*5*diff(distance_id(l),1));%for iris dataset
             %weight_matrix(distance_id(l),i) = exp(-1*5*diff(distance_id(l),1));%for iris dataset
-            weight_matrix(i,distance_id(l)) = exp(-3*diff(distance_id(l),1));%for moon dataset
-            weight_matrix(distance_id(l),i) = exp(-3*diff(distance_id(l),1));%for moon dataset
+            weight_matrix(i,distance_id(l)) = exp(-5*diff(distance_id(l),1));%for moon dataset
+            weight_matrix(distance_id(l),i) = exp(-5*diff(distance_id(l),1));%for moon dataset
             %weight_matrix(i,distance_id(l)) = 1/(sqrt(diff(distance_id(l),1))+0.1);%for moon dataset
             %weight_matrix(distance_id(l),i) = 1/(sqrt(diff(distance_id(l),1))+0.1);%for moon dataset
             edge_matrix(distance_id(l),i) = 1;

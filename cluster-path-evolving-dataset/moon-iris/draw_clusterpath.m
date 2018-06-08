@@ -32,10 +32,10 @@ if level == 1
     end
     pax=gca;
     pax.FontSize = 15;
-    %xlabel('First principal component');%for iris dataset
-    %ylabel('Second principal component');%for iris dataset
-    xlabel('Feature 1');% for moon dataset
-    ylabel('Feature 2');%for moon dataset
+    xlabel('First principal component');%for iris dataset
+    ylabel('Second principal component');%for iris dataset
+    %xlabel('Feature 1');% for moon dataset
+    %ylabel('Feature 2');%for moon dataset
 end
 hold on;
 for i =1:n
@@ -43,6 +43,7 @@ for i =1:n
     point2=[source(i,2) dest(i,2)];
     plot(point1, point2, '-r');
 end
+
 end
 
 

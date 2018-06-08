@@ -13,6 +13,7 @@ for i=1:num_lambda
     if abs(temp) > control_awareness
         fprintf('[YES:%d] change: %.2f | awareness: %.2f. restart convex clustering\n', i, abs(temp), control_awareness);
         is_restart = true;
+        %break;
     else
         fprintf('[NO:%d] change: %.2f | awareness: %.2f. continue...\n', i, abs(temp), control_awareness);
         is_restart = false;

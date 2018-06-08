@@ -1,5 +1,5 @@
 clear;
-[A_raw, A_std, true_label] = prepare_data( 'moons2.txt','NO NOISE');
+[A_raw, A_std, true_label] = prepare_data( 'iris2.txt','NO NOISE');
 [n,d] = size(A_std);                                                                                              
 [edge_matrix, weight_matrix ] = build_network(A_std, 'NEIGHBOURS', 10);
 rho=1;
