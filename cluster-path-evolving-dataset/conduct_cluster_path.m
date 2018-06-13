@@ -46,13 +46,13 @@ end
 
 
 
-if d>2
-    s_hyp.data4draw = score(:,1:2);
-    draw_clusterpath(s_hyp);
-elseif d==2
-        s_hyp.data4draw = A;
-     draw_clusterpath(s_hyp);
-end
+% if d>2
+%     s_hyp.data4draw = score(:,1:2);
+%     draw_clusterpath(s_hyp);
+% elseif d==2
+%         s_hyp.data4draw = A;
+%      draw_clusterpath(s_hyp);
+% end
 
 
 end
