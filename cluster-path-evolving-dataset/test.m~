@@ -1,6 +1,6 @@
 clc;
 clear all;
-%rng('default');
+rng('default');
 
 %s_hyp = load_image( s_hyp.fn_image, s_hyp );
 %load data and hyper-parameters
@@ -8,9 +8,6 @@ s_hyp = prepare_data();
 s_hyp = init_parameters(s_hyp);
 
 s_hyp = conduct_cluster_path( s_hyp );
-
-CLUSTER_PATH = false;
-CLUSTER_ROBUSTNESS = true;
 
 for i=1:s_hyp.move_step_num
 
@@ -32,20 +29,20 @@ for i=1:s_hyp.move_step_num
         end
     elseif CLUSTER_ROBUSTNESS == true
         %initialize parameter
-        %s_hyp = init_parameters(s_hyp);
+        s_hyp = init_parameters(s_hyp);
         s_hyp.move_step = i*s_hyp.move_step;
         s_hyp = get_evolving_data( s_hyp );
-        s_hyp = conduct_cluster_path( s_hyp );
+        conduct_cluster_path( s_hyp );
         % compute the robustness
         XX = s_hyp.X_record4robustness;
-        interval = s_hyp.n;
-        accu_var = 0;
-        for j=1:s_hyp.n
+        interval = s_hyp.n*s_hyp.d;
+        sum = 0;
+        for j=1:s_hyp.n*s_hyp.d
             temp = XX(j,:) - XX(j+interval,:);
-            accu_var = accu_var + sum(temp .* temp);
+            sum = sum + temp .* temp;
         end
-        robust = sqrt(accu_var);
-        fprintf([s_hyp.ALGO '| robustness (Forbenius norm): %.4f \n'], robust);
+        robust = sqrt(sum);
+        fprintf([s_hyp.ALGO '');
     end
 
 

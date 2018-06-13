@@ -15,8 +15,15 @@ alpha = s_hyp.alpha;
 for i=1:num_level
     
     s_hyp.alpha = (s_hyp.step + s_hyp.step_increase)*alpha;
-    s_hyp = unware_regularized_convex_clustering(s_hyp);
     
+    if strcmp(s_hyp.ALGO,'CVX-PRIMAL-2011')
+          s_hyp  = convex_clustering_cvx_primal( s_hyp );
+    elseif strcmp(s_hyp.ALGO,'our_method')
+        s_hyp = unware_regularized_convex_clustering(s_hyp);
+    elseif strcmp(s_hyp.ALGO,'NETWORK_LASSO')
+        s_hyp = network_lasso(s_hyp);
+    end
+
     %centering X3 in order to draw
     X_temp = s_hyp.X;
     X = [X; X_temp];
@@ -35,6 +42,8 @@ for i=1:num_level
     %draw_pixel_clusters( s_hyp )
 
 end
+
+
 
 
 if d>2
