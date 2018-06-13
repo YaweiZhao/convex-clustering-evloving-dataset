@@ -51,5 +51,11 @@ time = toc;
 s_hyp.X_network_lasso = X_new;
 s_hyp.time_network_lasso = time;
 
+s_hyp.X = X;
+%for robustness
+s_hyp.X_record4robustness = [s_hyp.X_record4robustness; X];
+
+
+
 end
 
