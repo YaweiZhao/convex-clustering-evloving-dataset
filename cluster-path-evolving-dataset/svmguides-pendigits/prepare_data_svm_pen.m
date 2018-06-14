@@ -7,7 +7,8 @@ A_temp = A_temp.data;
 A_temp = rand_perm_data(A_temp);%whether to permute data randomly
 true_label = A_temp(:,1);
 s_hyp.true_label = true_label;
-A = A_temp(:,1:d-1);
+A = transpose(mapstd(transpose(A_temp(:,2:d))));
+
 [U,S,V] = svd(A, 'econ');
 num_primal_component = 2;
 A = U(:,1:num_primal_component) * S(1:num_primal_component,1:num_primal_component) * V(1:num_primal_component,1:num_primal_component)';
