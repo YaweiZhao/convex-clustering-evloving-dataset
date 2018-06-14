@@ -11,7 +11,7 @@ A = A_temp(:,1:d-1);
 num_primal_component = 3;
 A = U(:,1:num_primal_component) * S(1:num_primal_component,1:num_primal_component) * V(1:num_primal_component,1:num_primal_component)';
 s_hyp.A = A(1:fix(n/2),:);%choose a subset of A
-s_hyp.n = n;
+s_hyp.n = fix(n/2);
 s_hyp.d = num_primal_component;
 end
 
