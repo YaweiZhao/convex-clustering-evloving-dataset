@@ -27,7 +27,7 @@ s_hyp.num_neighbours = 5;
 s_hyp.step = 1;
 s_hyp.step_increase = 2;
 s_hyp.alpha = 1; %hyper-parameter for regularized item
-s_hyp.num_level = 1;
+s_hyp.num_level = 5;
 
 s_hyp.num_move_data = fix(s_hyp.n/10);
 s_hyp.move_step = 0.2; %set 0 for no evolving data
