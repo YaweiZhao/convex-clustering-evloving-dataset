@@ -11,9 +11,9 @@ if d>2
 end
 
 X=[];
-alpha = s_hyp.alpha;
+
 for i=1:num_level
-    
+    alpha = s_hyp.alpha;
     s_hyp.alpha = (s_hyp.step + s_hyp.step_increase)*alpha;
     
     if strcmp(s_hyp.ALGO,'CVX-PRIMAL-2011')
