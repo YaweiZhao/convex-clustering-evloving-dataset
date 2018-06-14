@@ -10,8 +10,8 @@ A = A_temp(:,1:d-1);
 [U,S,V] = svd(A, 'econ');
 num_primal_component = 3;
 A = U(:,1:num_primal_component) * S(1:num_primal_component,1:num_primal_component) * V(1:num_primal_component,1:num_primal_component)';
-s_hyp.A = A(1:n/10,:);%choose a subset of A
-s_hyp.n = n/10;
+s_hyp.A = A(1:n,:);%choose a subset of A
+s_hyp.n = n;
 s_hyp.d = num_primal_component;
 end
 

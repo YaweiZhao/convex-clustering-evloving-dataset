@@ -1,4 +1,0 @@
-cd ~/Documents/cvx
-%add path
-addpath(genpath('shuttle'));
-addpath(genpath('algo'));
