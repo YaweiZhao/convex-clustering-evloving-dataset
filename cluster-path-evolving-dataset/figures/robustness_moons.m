@@ -63,13 +63,74 @@ our_method_beta_10_ave = [2.289 4.9817 20.52 29.76];
 our_method_beta_15_ave = [2 3.76 17.2 27.4];
 our_method_beta_20_ave = [1.79 3.27 13.5 25.9];
 data = [our_method_beta_1_ave;our_method_beta_5_ave;our_method_beta_10_ave;our_method_beta_15_ave;our_method_beta_20_ave];
-% vary beta
-figure();
-base_x = [2 4 6 8];
+% % vary beta
+% figure();
+% base_x = [2 4 6 8];
+% h = bar(base_x, data');
+% l={'\beta=1', '\beta=5', '\beta=10', '\beta=15', '\beta=20'};
+% legend(h,l, 'Location', 'Northwest');
+% set(gca, 'XTickLabel',{'\alpha=5','\alpha=10','\alpha=50','\alpha=100'});
+% set(gca, 'FontSize', 18);
+
+
+
+%awareness vary path level
+awareness_moons = [585 305 87 46 20; 338 317 130 57 25; 587 520 169 80 26];
+awareness_moons_var = var(awareness_moons);
+awareness_moons_mean = mean(awareness_moons);
+awareness_iris = [1152 899 132 13.49 9; 721 484 168 27 8.38; 1486 518 158 54 9];
+awareness_iris_var = var(awareness_iris);
+awareness_iris_mean = mean(awareness_iris);
+base_x = [10,20];%1x2
+data = [awareness_iris_var' awareness_moons_var'];%5x2
 h = bar(base_x, data');
-l={'\beta=1', '\beta=5', '\beta=10', '\beta=15', '\beta=20'};
-legend(h,l, 'Location', 'Northwest');
-set(gca, 'XTickLabel',{'\alpha=5','\alpha=10','\alpha=50','\alpha=100'});
+set(gca,'yscale','log');
+l={'l=1', 'l=2', 'l=3', 'l=4', 'l=5'};
+legend(h,l, 'Location', 'Northeast');
+set(gca, 'XTickLabel',{'iris','moons'});
 set(gca, 'FontSize', 18);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

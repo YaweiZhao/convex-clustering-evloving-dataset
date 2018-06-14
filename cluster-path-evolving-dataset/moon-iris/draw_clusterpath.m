@@ -5,7 +5,6 @@ num_level = s_hyp.num_level;
 true_label = s_hyp.true_label;
 n = s_hyp.n;
 
-hold on;
 for  i=1:num_level
     start_id = (i-1)*n+1;
     end_id = i*n;
