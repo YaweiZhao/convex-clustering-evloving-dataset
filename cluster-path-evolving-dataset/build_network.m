@@ -5,8 +5,8 @@ edge_matrix = zeros(n,n);
 weight_matrix = zeros(n,n);
 
 for i=1:n-1
-    %diff = sum((A(i,:) - A) .* (A(i,:) - A),2);
-    diff = sum(abs(A(i,:) - A),2);
+    diff = sum((A(i,:) - A) .* (A(i,:) - A),2);
+    %diff = sum(abs(A(i,:) - A),2);
     [~,distance_id] = sort(diff,'ascend');
         for l=1:s_hyp.num_neighbours                                   %%%%%%%%% number of neighbours
             if distance_id(l) == i || edge_matrix(i,distance_id(l)) == 1
