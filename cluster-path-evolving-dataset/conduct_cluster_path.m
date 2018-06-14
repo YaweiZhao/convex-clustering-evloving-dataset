@@ -43,7 +43,7 @@ for i=1:num_level
 
 end
 
-data_for_draw = score(:,1:2);
+data_for_draw = A;
 centers = s_hyp.centers;
 true_label = s_hyp.true_label;
 save('data_for_draw_svmguide.mat','data_for_draw');
