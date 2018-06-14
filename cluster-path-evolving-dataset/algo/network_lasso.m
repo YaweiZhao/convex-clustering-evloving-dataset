@@ -21,7 +21,7 @@ for k=1:n
         Delta_temp(k,k+(l-1)*n) = 1;
     end
 end
-for i=1:200
+for i=1:100
     %step 1: update x
     cvx_begin
         variable X(n,d)

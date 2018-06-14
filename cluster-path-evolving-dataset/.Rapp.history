@@ -1,0 +1,118 @@
+source("/Users/yawei/Desktop/network_lasso/convex_clustering_ama.R")
+a
+# a
+## a
+## Create random problem    seed <- 12345    p <- 10    n <- 20    rnd_problem <- create_clustering_problem(p,n,seed)    X <- rnd_problem$X    ix <- rnd_problem$ix    M1 <- rnd_problem$M1    M2 <- rnd_problem$M2    s1 <- rnd_problem$s1    s2 <- rnd_problem$s2    w  <- rnd_problem$w    nK <- nrow(ix)    Lambda <- matrix(rnorm(p*nK),p,nK)    gamma <- 0.1    nu <- 1.999/n    max_iter <- 1e6    tol <- 1e-15    sol_ama <- cvxclust_ama(X,Lambda,ix,M1,M2,s1,s2,w,gamma,nu,max_iter=max_iter,tol=tol)
+U <- sol_ama$U
+U
+## Create random problem    seed <- 12345    p <- 10    n <- 20    rnd_problem <- create_clustering_problem(p,n,seed)    X <- rnd_problem$X    ix <- rnd_problem$ix    M1 <- rnd_problem$M1    M2 <- rnd_problem$M2    s1 <- rnd_problem$s1    s2 <- rnd_problem$s2    w  <- rnd_problem$w    nK <- nrow(ix)    Lambda <- matrix(rnorm(p*nK),p,nK)    gamma <- 5    nu <- 1.999/n    max_iter <- 1e6    tol <- 1e-15    sol_ama <- cvxclust_ama(X,Lambda,ix,M1,M2,s1,s2,w,gamma,nu,max_iter=max_iter,tol=tol)
+U <- sol_ama$U
+U
+## Create random problem    seed <- 12345    p <- 1    n <- 20    rnd_problem <- create_clustering_problem(p,n,seed)    X <- rnd_problem$X    ix <- rnd_problem$ix    M1 <- rnd_problem$M1    M2 <- rnd_problem$M2    s1 <- rnd_problem$s1    s2 <- rnd_problem$s2    w  <- rnd_problem$w    nK <- nrow(ix)    Lambda <- matrix(rnorm(p*nK),p,nK)    gamma <- 10    nu <- 1.999/n    max_iter <- 1e6    tol <- 1e-15    sol_ama <- cvxclust_ama(X,Lambda,ix,M1,M2,s1,s2,w,gamma,nu,max_iter=max_iter,tol=tol)
+U <- sol_ama$U
+U
+print("ddd")
+print(3-1)
+# load and prepare data    library(clv)    data(iris)    iris.data <- iris[,1:4]    # cluster data    agnes.mod <- agnes(iris.data) # create cluster tree    v.pred <- as.integer(cutree(agnes.mod,5)) # "cut" the tree    # compute Dens_bw index    scatt <- clv.Scatt(iris.data, v.pred)    dens.bw <- clv.DensBw(iris.data, v.pred, scatt)
+dens.bw
+iris.data
+scatt
+library(clv)#
+#
+# load and prepare#
+library(clv)#
+data(iris)#
+iris.data <- iris[,1:4]#
+#
+# cluster data#
+agnes.mod <- agnes(iris.data) # create cluster tree #
+v.pred <- as.integer(cutree(agnes.mod,5)) # "cut" the tree #
+#
+# prepare proper input data for SD and S_Dbw indicies#
+scatt <- clv.Scatt(iris.data, v.pred)#
+dis <- clv.Dis(scatt$cluster.center)#
+dens.bw <- clv.DensBw(iris.data, v.pred, scatt)#
+#
+# compute  SD and S_Dbw indicies#
+SD <- clv.SD(scatt$Scatt, dis, alfa=5) # alfa is equal to number of clusters #
+SDbw <- clv.SDbw(scatt$Scatt, dens.bw)
+SDbw
+SD
+# load and prepare#
+library(clv)#
+data(iris)#
+iris.data <- iris[,1:4]#
+#
+# cluster data#
+agnes.mod <- agnes(iris.data) # create cluster tree #
+v.pred <- as.integer(cutree(agnes.mod,5)) # "cut" the tree #
+#
+# prepare proper input data for SD and S_Dbw indicies#
+scatt <- clv.Scatt(iris.data, v.pred)#
+dis <- clv.Dis(scatt$cluster.center)#
+dens.bw <- clv.DensBw(iris.data, v.pred, scatt)#
+#
+# compute  SD and S_Dbw indicies#
+SD <- clv.SD(scatt$Scatt, dis, alfa=5) # alfa is equal to number of clusters #
+SDbw <- clv.SDbw(scatt$Scatt, dens.bw)
+SDbw
+SD
+install.packages(c("Rcpp","ggplot2","latticeExtra"))
+install.packages("clusterpath",repos="http://r-forge.r-project.org")
+cvxcluster
+cvxcluster
+## Create random problem#
+    seed <- 12345#
+    p <- 10#
+    n <- 20#
+    rnd_problem <- create_clustering_problem(p,n,seed)#
+    X <- rnd_problem$X#
+    ix <- rnd_problem$ix#
+    M1 <- rnd_problem$M1#
+    M2 <- rnd_problem$M2#
+    s1 <- rnd_problem$s1#
+    s2 <- rnd_problem$s2#
+    w  <- rnd_problem$w#
+    nK <- nrow(ix)#
+    Lambda <- matrix(rnorm(p*nK),p,nK)#
+    gamma <- 0.1#
+    nu <- 1.999/n#
+    max_iter <- 1e6#
+    tol <- 1e-15#
+    sol_ama <- cvxclust_ama(X,Lambda,ix,M1,M2,s1,s2,w,gamma,nu,max_iter=max_iter,tol=tol)
+import cvxclust
+cvxclust
+## Create random problem#
+    seed <- 12345#
+    p <- 10#
+    n <- 20#
+    rnd_problem <- create_clustering_problem(p,n,seed)#
+    X <- rnd_problem$X#
+    ix <- rnd_problem$ix#
+    M1 <- rnd_problem$M1#
+    M2 <- rnd_problem$M2#
+    s1 <- rnd_problem$s1#
+    s2 <- rnd_problem$s2#
+    w  <- rnd_problem$w#
+    nK <- nrow(ix)#
+    Lambda <- matrix(rnorm(p*nK),p,nK)#
+    gamma <- 0.1#
+    nu <- 1.999/n#
+    max_iter <- 1e6#
+    tol <- 1e-15#
+    sol_ama <- cvxclust_ama(X,Lambda,ix,M1,M2,s1,s2,w,gamma,nu,max_iter=max_iter,tol=tol)
+sol_ama
+ls
+ls
+ls
+path <- system.file(".", package="R.matlab");
+pathname <- file.path(path, "A_trans.mat");
+data <- readMat(pathname);
+path <- system.file("/Users/yawei/Documents/Submission/TKDE new/source file/source_code/convex-clustering-evloving-dataset/cluster-path-evolving-dataset", package="R.matlab");
+pathname <- file.path(path, "A_trans.mat");
+data <- readMat(pathname);
+library("R.matlab")
+path <- ("/Users/yawei/Documents/Submission/TKDE new/source file/source_code/convex-clustering-evloving-dataset/cluster-path-evolving-dataset/")
+pathname <- file.path(path, "A_trans.mat");
+data <- readMat(pathname)
+data.shape
