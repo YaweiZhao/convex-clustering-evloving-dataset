@@ -4,7 +4,7 @@ clear all;
 
 %s_hyp = load_image( s_hyp.fn_image, s_hyp );
 %load data and hyper-parameters
-s_hyp = prepare_data();
+s_hyp = prepare_data_shuttle();
 s_hyp = init_parameters(s_hyp);
 
 s_hyp = conduct_cluster_path( s_hyp );
