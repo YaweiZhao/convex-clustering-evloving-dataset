@@ -13,7 +13,7 @@ true_label = load('true_label_svmguide.mat');
 true_label = true_label.true_label;
 true_label = true_label +1;
 true_label = true_label(1:100,:);
-num_level = 5;
+num_level = 4;
 n = 100;
 
 
