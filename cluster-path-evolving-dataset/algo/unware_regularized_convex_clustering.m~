@@ -42,7 +42,7 @@ m = s_hyp.m;
 beta = 0;
 s_hyp.beta = beta;
 
-fprintf('>>>>>>>>>>>>>>>>>>>>alpha: %.2f \n', s_hyp.alpha);
+fprintf('>>>>>>>>>>>>>>>>>>>>alpha: %.2f\n', );
 cvx_begin
 variables lambda(m,d)
 vec_lambda = reshape(lambda,m*d,1);
