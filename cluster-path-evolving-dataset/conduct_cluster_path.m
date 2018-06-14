@@ -43,8 +43,13 @@ for i=1:num_level
 
 end
 
+data_for_draw = score(:,1:2);
+centers = s_hyp.centers;
+true_label = s_hyp.true_label;
+save('data_for_draw_svmguide.mat','data_for_draw');
+save('centers_svmguide.mat', 'centers');
+save('true_label_svmguide.mat', 'true_label');
 
-save('data_for_draw_svmguide.mat', ' s_hyp');
 % figure;
 % 
 % if d>2

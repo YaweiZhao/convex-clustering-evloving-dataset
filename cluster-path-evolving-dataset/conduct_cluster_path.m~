@@ -43,9 +43,8 @@ for i=1:num_level
 
 end
 
-% % 
-data
-save('data4draw-svmguide.mat', ' s_hyp.data4draw');
+
+save('data_for_draw_svmguide.mat',');
 % figure;
 % 
 % if d>2
