@@ -25,8 +25,8 @@ s_hyp.ALGO = 'our_method';
 
 s_hyp.num_neighbours = 10;
 s_hyp.step = 1;
-s_hyp.step_increase = 2;
-s_hyp.alpha = 4; %hyper-parameter for regularized item
+s_hyp.step_increase = 1.5;
+s_hyp.alpha = 10; %hyper-parameter for regularized item
 s_hyp.num_level = 5;
 
 s_hyp.num_move_data = fix(s_hyp.n/10);
