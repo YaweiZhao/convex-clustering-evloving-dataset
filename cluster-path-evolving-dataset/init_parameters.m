@@ -23,7 +23,7 @@ function s_hyp = init_param_datasets(s_hyp)
 s_hyp.ALGO = 'our_method';
 %s_hyp.ALGO = 'NETWORK_LASSO';
 
-s_hyp.num_neighbours = 6;
+s_hyp.num_neighbours = 10;
 s_hyp.step = 1;
 s_hyp.step_increase = 2;
 s_hyp.alpha = 4; %hyper-parameter for regularized item
