@@ -7,15 +7,17 @@ A_temp = A_temp.data;
 A_temp = rand_perm_data(A_temp);%whether to permute data randomly
 true_label = A_temp(:,1);
 s_hyp.true_label = true_label;
-A = transpose(mapstd(transpose(A_temp(:,2:d))));
-
-[U,S,V] = svd(A, 'econ');
+%A = transpose(mapstd(transpose(A_temp(:,2:d))));
+A = A_temp - mean(A_temp);
+[U,S,V] = svd(A_temp, 'econ');
 num_primal_component = 2;
 A = U(:,1:num_primal_component) * S(1:num_primal_component,1:num_primal_component) * V(1:num_primal_component,1:num_primal_component)';
 n = fix(n);
+
 s_hyp.A = A(1:n,:);%choose a subset of A
 s_hyp.n = n;
 s_hyp.d = num_primal_component;
+scatter(A(:,1), A(:,2));
 end
 
 

@@ -39,8 +39,8 @@ if level == 1
     colors = ['g','b','c','k','y'];
     for i = 1:num_clusters
         scatter(source(true_label==i,1),source(true_label==i,2),[],colors(1,i));
-        set(gca,'yscale','log');
-        set(gca,'xscale','log');
+        %set(gca,'yscale','log');
+        %set(gca,'xscale','log');
     end
     pax=gca;
     pax.FontSize = 15;
