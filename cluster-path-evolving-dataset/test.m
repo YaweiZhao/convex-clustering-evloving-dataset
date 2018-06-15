@@ -1,6 +1,6 @@
 clc;
 clear all;
-%rng('default');
+rng('default');
 
 %s_hyp = load_image( s_hyp.fn_image, s_hyp );
 %load data and hyper-parameters
