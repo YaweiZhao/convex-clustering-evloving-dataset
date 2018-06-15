@@ -8,12 +8,12 @@ centers = load('centers_svmguide.mat');
 centers = centers.centers;
 temp = transpose(1:100);
 %centers = centers([temp; n+temp; 2*n+temp; 3*n+temp; 4*n+temp],:);
-centers = centers([temp; n+temp],:);
+centers = centers([temp; n+temp; 2*n+temp],:);
 true_label = load('true_label_svmguide.mat');
 true_label = true_label.true_label;
 true_label = true_label +1;
 true_label = true_label(1:100,:);
-num_level = 4;
+num_level = 3;
 n = 100;
 
 
