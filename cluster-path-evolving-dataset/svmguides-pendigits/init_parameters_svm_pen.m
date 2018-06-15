@@ -25,7 +25,7 @@ s_hyp.num_level = 1;
 
 s_hyp.num_move_data = fix(s_hyp.n/10);
 s_hyp.move_step = 0.2; %set 0 for no evolving data
-s_hyp.move_step_num = 0;%set 0 for no evolving data
+s_hyp.move_step_num = 5;%set 0 for no evolving data
 s_hyp.control_awareness = 10000;
 s_hyp.lambda_opt_vec = [];
 
