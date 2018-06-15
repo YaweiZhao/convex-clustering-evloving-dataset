@@ -39,7 +39,7 @@ Q = s_hyp.Q;
 n = s_hyp.n;
 d = s_hyp.d;
 m = s_hyp.m;
-beta = 0;
+beta = 5;
 s_hyp.beta = beta;
 
 fprintf('>>>>>>>>>>>>>>>>>>>>alpha: %.2f \n', s_hyp.alpha);
