@@ -11,10 +11,10 @@ if d>2
 end
 
 X=[];
-
+alpha = s_hyp.alpha;
 for i=1:num_level
-    alpha = s_hyp.alpha;
-    s_hyp.alpha = (s_hyp.step + s_hyp.step_increase)*alpha;
+    alpha = i*alpha;
+    s_hyp.alpha = alpha;
     
     if strcmp(s_hyp.ALGO,'CVX-PRIMAL-2011')
           s_hyp  = convex_clustering_cvx_primal( s_hyp );
@@ -43,22 +43,23 @@ for i=1:num_level
 
 end
 
-data_for_draw = A;
-centers = s_hyp.centers;
-true_label = s_hyp.true_label;
-save('./svmguides-pendigits/data_for_draw_svmguide.mat','data_for_draw');
-save('./svmguides-pendigits/centers_svmguide.mat', 'centers');
-save('./svmguides-pendigits/true_label_svmguide.mat', 'true_label');
+% data_for_draw = A;
+% centers = s_hyp.centers;
+% true_label = s_hyp.true_label;
+% save('./svmguides-pendigits/data_for_draw_svmguide.mat','data_for_draw');
+% save('./svmguides-pendigits/centers_svmguide.mat', 'centers');
+% save('./svmguides-pendigits/true_label_svmguide.mat', 'true_label');
 
-% figure;
-% 
-% if d>2
-%     s_hyp.data4draw = score(:,1:2);
-%     draw_clusterpath(s_hyp);
-% elseif d==2
-%         s_hyp.data4draw = A;
-%      draw_clusterpath(s_hyp);
-% end
+figure;
+
+if d>2
+    s_hyp.data4draw = score(:,1:2);
+    draw_clusterpath(s_hyp);
+elseif d==2
+        s_hyp.data4draw = A;
+        draw_clusterpath(s_hyp);
+
+end
 
 
 end

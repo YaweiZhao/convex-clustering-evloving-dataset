@@ -1,6 +1,6 @@
 clc;
 clear all;
-%rng('default');
+rng('default');
 
 %s_hyp = load_image( s_hyp.fn_image, s_hyp );
 %load data and hyper-parameters
@@ -48,7 +48,7 @@ for i=1:s_hyp.move_step_num
         end
         robust = sqrt(accu_var);
         fprintf([s_hyp.ALGO '| robustness (Forbenius norm): %.4f \n'], robust);
-        break;
+        break;z
     end
 
 
