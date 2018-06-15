@@ -3,5 +3,6 @@ cvx_setup;
 
 %add path
 cd ~/convex-clustering-evloving-dataset/cluster-path-evolving-dataset
-addpath(genpath('shuttle'));
+addpath(genpath('segment'));
+addpath(genpath('svmguides-pendigits'));
 addpath(genpath('algo'));
