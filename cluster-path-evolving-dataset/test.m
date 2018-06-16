@@ -4,8 +4,8 @@ rng('default');
 
 %s_hyp = load_image( s_hyp.fn_image, s_hyp );
 %load data and hyper-parameters
-s_hyp = prepare_data_svm_pen();
-s_hyp = init_parameters_svm_pen(s_hyp);
+s_hyp = prepare_data_segment();
+s_hyp = init_parameters_segment(s_hyp);
 
 s_hyp = conduct_cluster_path( s_hyp );
 
@@ -46,7 +46,7 @@ elseif CLUSTER_ROBUSTNESS == true
     end
     robustness = sqrt(accu_var);
     %save('robustness.txt', 'robustness', '-ascii');
-    fprintf( 'algo: %s | alpha:  %d | robustness (Forbenius norm): %.4f \n',  s_hyp.ALGO,  s_hyp.alpha, robustness);
+    fprintf( 'algo: %s | beta: %d |  alpha:  %d | robustness (Forbenius norm): %.4f \n',  s_hyp.ALGO, s_hyp.beta,   s_hyp.alpha, robustness);
     
 end
 

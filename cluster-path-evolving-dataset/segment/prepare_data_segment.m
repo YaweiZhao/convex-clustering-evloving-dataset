@@ -15,7 +15,7 @@ s_hyp.true_label = true_label;
 %A_temp = transpose(mapstd(transpose(A_temp(:,2:d))));
 A = A_temp - mean(A_temp);
 [U,S,V] = svd(A_temp, 'econ');
-num_primal_component = 2;
+num_primal_component = 5;
 A = U(:,1:num_primal_component) * S(1:num_primal_component,1:num_primal_component) * V(1:num_primal_component,1:num_primal_component)';
 n = fix(n);
 
