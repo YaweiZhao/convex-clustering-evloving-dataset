@@ -45,7 +45,8 @@ elseif CLUSTER_ROBUSTNESS == true
         accu_var = accu_var + sum(temp .* temp);
     end
     robust = sqrt(accu_var);
-    fprintf([s_hyp.ALGO ' | alpha:  %d | robustness (Forbenius norm): %.4f \n'], s_hyp.alpha, robust);
+    save('robustness.txt', 'robustness', '-ascii');
+    fprintf( 'algo: %s | alpha:  %d | robustness (Forbenius norm): %.4f \n',  s_hyp.ALGO,  s_hyp.alpha, robust);
     
 end
 
