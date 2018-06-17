@@ -1,11 +1,11 @@
 clc;
 clear all;
-%rng('default');
+rng('default');
 
 %s_hyp = load_image( s_hyp.fn_image, s_hyp );
 %load data and hyper-parameters
-s_hyp = prepare_data_segment();
-s_hyp = init_parameters_segment(s_hyp);
+s_hyp = prepare_data();
+s_hyp = init_parameters(s_hyp);
 tic;
 s_hyp = conduct_cluster_path( s_hyp );
 consumed_time = toc;

@@ -51,7 +51,7 @@ temp2 = -transpose(reshape(A,n*d,1))*transpose(kron(eye(d),Q));
 eye_md = sparse(1:m*d,1:m*d,ones(1,m*d));
 temp1 = temp1+1e-8*eye_md;
 minimize (vec_lambda' * temp1 * vec_lambda + temp2*vec_lambda ...
-    + beta*norm(transpose(kron(eye(d),Q))*vec_lambda,Inf));
+    + beta*norm(transpose(kron(eye(d),Q))*vec_lambda,I));
 subject to
 %norms(lambda,1,2) <= ones(m,1);%l1 norm
 norms(lambda,2,2) <= ones(m,1);%l2 norm
