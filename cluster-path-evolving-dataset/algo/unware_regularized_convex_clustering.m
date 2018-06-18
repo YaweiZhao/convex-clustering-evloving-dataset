@@ -21,10 +21,6 @@ s_hyp = solve_l2_constraint(s_hyp);
 s_hyp = solve_linf_constraint_parallel(s_hyp);
 s_hyp = solve_linf_constraint(s_hyp);
 
-%for robustness
-s_hyp.X_record4robustness = [s_hyp.X_record4robustness; s_hyp.X];
-
-s_hyp.lambda_opt_vec = [s_hyp.lambda_opt_vec reshape(lambda,m*d,1)];
 
 end
 
@@ -59,6 +55,12 @@ fprintf('CPU seconds: %.2f | l1 norm constraint \n', s_hyp.time_l1_constraint);
 %recover X
 X = reshape(A,n*d,1) -0.5*transpose(kron(eye(d),Q))*reshape(lambda,m*d,1);
 s_hyp.X = reshape(X,n,d);
+
+%for robustness
+s_hyp.X_record4robustness = [s_hyp.X_record4robustness; s_hyp.X];
+
+s_hyp.lambda_opt_vec = [s_hyp.lambda_opt_vec reshape(lambda,m*d,1)];
+
 end
 
 
@@ -92,6 +94,12 @@ fprintf('CPU seconds: %.2f | l2 norm constraint \n', s_hyp.time_l2_constraint);
 %recover X
 X = reshape(A,n*d,1) -0.5*transpose(kron(eye(d),Q))*reshape(lambda,m*d,1);
 s_hyp.X = reshape(X,n,d);
+
+%for robustness
+s_hyp.X_record4robustness = [s_hyp.X_record4robustness; s_hyp.X];
+
+s_hyp.lambda_opt_vec = [s_hyp.lambda_opt_vec reshape(lambda,m*d,1)];
+
 end
 
 
@@ -124,6 +132,12 @@ fprintf('CPU seconds: %.2f | Infty norm constraint \n', s_hyp.time_linf_constrai
 %recover X
 X = reshape(A,n*d,1) -0.5*transpose(kron(eye(d),Q))*reshape(lambda,m*d,1);
 s_hyp.X = reshape(X,n,d);
+
+%for robustness
+s_hyp.X_record4robustness = [s_hyp.X_record4robustness; s_hyp.X];
+
+s_hyp.lambda_opt_vec = [s_hyp.lambda_opt_vec reshape(lambda,m*d,1)];
+
 end
 
 function [s_hyp] = solve_linf_constraint_parallel(s_hyp)
@@ -154,6 +168,10 @@ fprintf('>>>PARALLEL: CPU seconds: %.2f | Infty norm constraint \n', s_hyp.time_
 %recover X
 X = reshape(A,n*d,1) -0.5*transpose(kron(eye(d),Q))*reshape(lambda,m*d,1);
 s_hyp.X = reshape(X,n,d);
+
+%for robustness
+
+
 end
 
 
