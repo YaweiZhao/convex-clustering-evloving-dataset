@@ -6,13 +6,10 @@ rng('default');
 %load data and hyper-parameters
 s_hyp = prepare_data();
 s_hyp = init_parameters(s_hyp);
-tic;
 s_hyp = conduct_cluster_path( s_hyp );
-consumed_time = toc;
-fprintf('algo: %s | average cpu seconds: %.2f \n', s_hyp.ALGO, consumed_time);
 
 CLUSTER_PATH = false;
-CLUSTER_ROBUSTNESS = true;
+CLUSTER_ROBUSTNESS = false;
 
 
 if CLUSTER_PATH == true
