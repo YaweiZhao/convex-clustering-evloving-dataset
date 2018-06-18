@@ -87,7 +87,7 @@ norms(lambda,2,2) <= ones(m,1);%l2 norm
 %norms(lambda,Inf,2) <= ones(m,1);%l-Inf norm
 cvx_end
 s_hyp.time_l2_constraint = toc;
-fprintf('CPU seconds: %.2f | l2 norm constraint \n', s_hyp.time_l2_constraint);
+fprintf('>>>>>>>>CPU seconds: %.2f | l2 norm constraint \n', s_hyp.time_l2_constraint);
 
 %recover X
 X = reshape(A,n*d,1) -0.5*transpose(kron(eye(d),Q))*reshape(lambda,m*d,1);
@@ -124,7 +124,7 @@ subject to
 norms(lambda,Inf,2) <= ones(m,1);%l-Inf norm
 cvx_end
 s_hyp.time_linf_constraint = toc;
-fprintf('CPU seconds: %.2f | Infty norm constraint \n', s_hyp.time_linf_constraint);
+fprintf('>>>>>>>>>>>CPU seconds: %.2f | Infty norm constraint \n', s_hyp.time_linf_constraint);
 
 %recover X
 X = reshape(A,n*d,1) -0.5*transpose(kron(eye(d),Q))*reshape(lambda,m*d,1);
@@ -160,7 +160,7 @@ subject to
 [eye(m);-eye(m)]*lambda <= [ones(m,d);ones(m,d)];%l infty norm
 cvx_end
 s_hyp.time_linf_constraint_parallel = toc;
-fprintf('>>>PARALLEL: CPU seconds: %.2f | Infty norm constraint \n', s_hyp.time_linf_constraint_parallel);
+fprintf('>>>>>>>>PARALLEL: CPU seconds: %.2f | Infty norm constraint \n', s_hyp.time_linf_constraint_parallel);
 %recover X
 X = reshape(A,n*d,1) -0.5*transpose(kron(eye(d),Q))*reshape(lambda,m*d,1);
 s_hyp.X = reshape(X,n,d);
