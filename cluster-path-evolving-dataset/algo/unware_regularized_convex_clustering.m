@@ -34,7 +34,7 @@ beta = 5;
 s_hyp.beta = beta;
 
 tic;
-cvx_begin
+cvx_begin quiet
 variables lambda(m,d)
 vec_lambda = reshape(lambda,m*d,1);
 temp1 = 0.25*kron(eye(d),Q)*transpose(kron(eye(d),Q));
@@ -49,7 +49,7 @@ norms(lambda,1,2) <= ones(m,1);%l1 norm
 %norms(lambda,Inf,2) <= ones(m,1);%l-Inf norm
 cvx_end
 s_hyp.time_l1_constraint = toc;
-fprintf('CPU seconds: %.2f | l1 norm constraint \n', s_hyp.time_l1_constraint);
+fprintf('>>>>>>>>>>>CPU seconds: %.2f | l1 norm constraint \n', s_hyp.time_l1_constraint);
 
 %recover X
 X = reshape(A,n*d,1) -0.5*transpose(kron(eye(d),Q))*reshape(lambda,m*d,1);
@@ -73,7 +73,7 @@ beta = 5;
 s_hyp.beta = beta;
 
 tic;
-cvx_begin
+cvx_begin quiet
 variables lambda(m,d)
 vec_lambda = reshape(lambda,m*d,1);
 temp1 = 0.25*kron(eye(d),Q)*transpose(kron(eye(d),Q));
@@ -111,7 +111,7 @@ beta = 5;
 s_hyp.beta = beta;
 
 tic;
-cvx_begin
+cvx_begin quiet
 variables lambda(m,d)
 vec_lambda = reshape(lambda,m*d,1);
 temp1 = 0.25*kron(eye(d),Q)*transpose(kron(eye(d),Q));
@@ -147,7 +147,7 @@ beta = 5;
 s_hyp.beta = beta;
 
 tic;
-cvx_begin
+cvx_begin quiet
 variables lambda(m,d)
 vec_lambda = reshape(lambda,m*d,1);
 temp1 = 0.25*kron(eye(d),Q)*transpose(kron(eye(d),Q));
