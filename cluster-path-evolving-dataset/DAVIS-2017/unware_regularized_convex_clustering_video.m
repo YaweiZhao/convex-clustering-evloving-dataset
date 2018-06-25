@@ -16,10 +16,7 @@ function [s_hyp]= solve_cvx_dual_problem(s_hyp)
 
 fprintf('>>>>>>>>>>>>>>>>>>>>alpha: %.2f \n', s_hyp.alpha);
 s_hyp.regnorm = 1;% regulared norm: 1, 2, inf
-s_hyp = solve_l1_constraint(s_hyp);
 s_hyp = solve_l2_constraint(s_hyp);
-s_hyp = solve_linf_constraint_parallel(s_hyp);
-s_hyp = solve_linf_constraint(s_hyp);
 
 
 end
@@ -30,11 +27,11 @@ Q = s_hyp.Q;
 n = s_hyp.n;
 d = s_hyp.d;
 m = s_hyp.m;
-beta = 5;
+beta = 0;
 s_hyp.beta = beta;
 
 tic;
-cvx_begin quiet
+cvx_begin
 variables lambda(m,d)
 vec_lambda = reshape(lambda,m*d,1);
 temp1 = 0.25*kron(eye(d),Q)*transpose(kron(eye(d),Q));
@@ -44,8 +41,8 @@ temp1 = temp1+1e-8*eye_md;
 minimize (vec_lambda' * temp1 * vec_lambda + temp2*vec_lambda ...
     + beta*norm(transpose(kron(eye(d),Q))*vec_lambda,s_hyp.regnorm));
 subject to
-norms(lambda,1,2) <= ones(m,1);%l1 norm
-%norms(lambda,2,2) <= ones(m,1);%l2 norm
+%norms(lambda,1,2) <= ones(m,1);%l1 norm
+norms(lambda,2,2) <= ones(m,1);%l2 norm
 %norms(lambda,Inf,2) <= ones(m,1);%l-Inf norm
 cvx_end
 s_hyp.time_l1_constraint = toc;
@@ -147,7 +144,7 @@ beta = 5;
 s_hyp.beta = beta;
 
 tic;
-cvx_begin
+cvx_begin quiet
 variables lambda(m,d)
 vec_lambda = reshape(lambda,m*d,1);
 temp1 = 0.25*kron(eye(d),Q)*transpose(kron(eye(d),Q));

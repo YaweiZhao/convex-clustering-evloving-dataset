@@ -16,10 +16,10 @@ function [s_hyp]= solve_cvx_dual_problem(s_hyp)
 
 fprintf('>>>>>>>>>>>>>>>>>>>>alpha: %.2f \n', s_hyp.alpha);
 s_hyp.regnorm = 1;% regulared norm: 1, 2, inf
-s_hyp = solve_l1_constraint(s_hyp);
+%s_hyp = solve_l1_constraint(s_hyp);
 s_hyp = solve_l2_constraint(s_hyp);
-s_hyp = solve_linf_constraint_parallel(s_hyp);
-s_hyp = solve_linf_constraint(s_hyp);
+%s_hyp = solve_linf_constraint_parallel(s_hyp);
+%s_hyp = solve_linf_constraint(s_hyp);
 
 
 end
@@ -30,11 +30,11 @@ Q = s_hyp.Q;
 n = s_hyp.n;
 d = s_hyp.d;
 m = s_hyp.m;
-beta = 5;
+beta = 0;
 s_hyp.beta = beta;
 
 tic;
-cvx_begin quiet
+cvx_begin %quiet
 variables lambda(m,d)
 vec_lambda = reshape(lambda,m*d,1);
 temp1 = 0.25*kron(eye(d),Q)*transpose(kron(eye(d),Q));
@@ -73,7 +73,7 @@ beta = 5;
 s_hyp.beta = beta;
 
 tic;
-cvx_begin quiet
+cvx_begin %quiet
 variables lambda(m,d)
 vec_lambda = reshape(lambda,m*d,1);
 temp1 = 0.25*kron(eye(d),Q)*transpose(kron(eye(d),Q));
@@ -166,26 +166,6 @@ X = reshape(A,n*d,1) -0.5*transpose(kron(eye(d),Q))*reshape(lambda,m*d,1);
 s_hyp.X = reshape(X,n,d);
 
 %for robustness
-
-
-end
-
-
-function [s_hyp] = solve_admm_l1_constraint(s_hyp)
- 
-end
-
-function [s_hyp] = solve_admm_l2_constraint(s_hyp)
-
-
-end
-
-function [s_hyp] = solve_admm_linf_constraint(s_hyp)
- 
-
-end
-
-function [s_hyp] = solve_admm_linf_constraint_parallel(s_hyp)
 
 
 end

@@ -17,11 +17,11 @@ for i=1:num_level
     s_hyp.alpha = alpha;
     
     if strcmp(s_hyp.ALGO,'CVX-PRIMAL-2011')
-          s_hyp  = convex_clustering_cvx_primal( s_hyp );
+          %s_hyp  = convex_clustering_cvx_primal( s_hyp );
     elseif strcmp(s_hyp.ALGO,'our_method')
-        s_hyp = unware_regularized_convex_clustering(s_hyp);
+        s_hyp = unware_regularized_ridge_regression(s_hyp);
     elseif strcmp(s_hyp.ALGO,'NETWORK_LASSO')
-        s_hyp = network_lasso(s_hyp);
+        %s_hyp = network_lasso(s_hyp);
     end
 
     %centering X3 in order to draw
