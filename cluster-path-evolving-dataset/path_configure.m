@@ -5,5 +5,8 @@ cvx_setup;
 cd /localdisk/yawei1991/convex-clustering-evloving-dataset/cluster-path-evolving-dataset
 addpath(genpath('segment'));
 addpath(genpath('cpusmall'));
+addpath(genpath('space_ga'));
+addpath(genpath('ret'));
+addpath(genpath('mg'));
 addpath(genpath('svmguides-pendigits'));
 addpath(genpath('algo'));
