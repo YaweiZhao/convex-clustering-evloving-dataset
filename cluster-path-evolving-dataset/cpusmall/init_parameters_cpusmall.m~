@@ -19,8 +19,7 @@ end
 
 function s_hyp = init_param_datasets(s_hyp)
 s_hyp.TASK_TYPE = 'ridge_regression';
-s_hyp.ALGO = 'CVX-PRIMAL';
-%s_hyp.ALGO = 'CVX-PRIMAL-2011';
+s_hyp.ALGO = 'CVX-PRIMAL-2011';
 %s_hyp.ALGO = 'our_method';
 %s_hyp.ALGO = 'NETWORK_LASSO';
 

@@ -16,11 +16,11 @@ for i=1:num_level
     alpha = i*alpha;
     s_hyp.alpha = alpha;
     
-    if strcmp(s_hyp.ALGO,'CVX-PRIMAL-2011')
-          %s_hyp  = convex_clustering_cvx_primal( s_hyp );
-    elseif strcmp(s_hyp.ALGO,'our_method')
+    if strcmp(s_hyp.ALGO,'CVX-PRIMAL') && strcmp(s_hyp.TASK_TYPE,'ridge_regression')
+          s_hyp  = ridge_regression_cvx_primal( s_hyp );
+    elseif strcmp(s_hyp.ALGO,'our_method')&& strcmp(s_hyp.TASK_TYPE,'ridge_regression')
         s_hyp = unware_regularized_ridge_regression(s_hyp);
-    elseif strcmp(s_hyp.ALGO,'NETWORK_LASSO')
+    elseif strcmp(s_hyp.ALGO,'NETWORK_LASSO')&& strcmp(s_hyp.TASK_TYPE,'ridge_regression')
         %s_hyp = network_lasso(s_hyp);
     end
 
