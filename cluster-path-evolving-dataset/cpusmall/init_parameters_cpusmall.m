@@ -19,10 +19,10 @@ end
 
 function s_hyp = init_param_datasets(s_hyp)
 s_hyp.TASK_TYPE = 'ridge_regression';
-s_hyp.ALGO = 'CVX-PRIMAL';
+%s_hyp.ALGO = 'CVX-PRIMAL';
 %s_hyp.ALGO = 'CVX-PRIMAL-2011';
 %s_hyp.ALGO = 'our_method';
-%s_hyp.ALGO = 'NETWORK_LASSO';
+s_hyp.ALGO = 'NETWORK_LASSO';
 
 s_hyp.num_neighbours =5;
 s_hyp.alpha = 10; %hyper-parameter for regularized item, 10 in default

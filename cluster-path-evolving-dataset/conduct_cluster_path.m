@@ -21,7 +21,7 @@ for i=1:num_level
     elseif strcmp(s_hyp.ALGO,'our_method')&& strcmp(s_hyp.TASK_TYPE,'ridge_regression')
         s_hyp = unware_regularized_ridge_regression(s_hyp);
     elseif strcmp(s_hyp.ALGO,'NETWORK_LASSO')&& strcmp(s_hyp.TASK_TYPE,'ridge_regression')
-        %s_hyp = network_lasso(s_hyp);
+        s_hyp = ridge_regression_network_lasso(s_hyp);
     end
 
     %centering X3 in order to draw

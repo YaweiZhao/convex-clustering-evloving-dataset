@@ -3,6 +3,8 @@ s_hyp.Q = s_hyp.alpha*s_hyp.Q;
 
 A = double(s_hyp.A);
 price = s_hyp.true_label;
+gamma = 1e-3;
+s_hyp.gamma = gamma;
 Q = s_hyp.Q;
 n = s_hyp.n;
 d = s_hyp.d;
@@ -12,7 +14,7 @@ tic
 %for test
 cvx_begin
 variables X(n,d)
-minimize ( sum(transpose(sum(A .* X, 2) - price) * (sum(A .* X, 2) - price)) + sum(norms(Q*X,2,2)));
+minimize ( sum(transpose(sum(A .* X, 2) - price) * (sum(A .* X, 2) - price))+ gamma * sum(sum(X .* X)) + sum(norms(Q*X,2,2)));
 cvx_end
 
 s_hyp.X = X;
