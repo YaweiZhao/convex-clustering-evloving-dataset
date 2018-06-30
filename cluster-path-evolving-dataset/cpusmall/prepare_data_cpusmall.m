@@ -7,7 +7,7 @@ A_temp = A_temp.data;
 %A_temp = rand_perm_data(A_temp);%whether to permute data randomly
 %true_label = A_temp(:,1);
 %A_temp = rand_perm_data(A_temp);%whether to permute data randomly
-A_temp = A_temp(1:200,:);
+%A_temp = A_temp(1:200,:);
 true_label = A_temp(:,1);
 
 [n,d] = size(A_temp);

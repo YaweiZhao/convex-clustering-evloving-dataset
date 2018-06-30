@@ -13,7 +13,8 @@ m = s_hyp.m;
 X_new = zeros(n,d);
 Z_new = zeros(m,d);%temp 
 U_new = zeros(m,d);%dual variable
-
+rho = 1;
+p=2;
 % our ADMM
 tic;
 Delta_temp = zeros(n,n*d);
