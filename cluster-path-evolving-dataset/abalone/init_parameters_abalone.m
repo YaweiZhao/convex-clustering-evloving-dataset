@@ -1,4 +1,4 @@
-function [s_hyp] = init_parameters_spacega(s_hyp)
+function [s_hyp] = init_parameters_abalone(s_hyp)
 
 
 
@@ -23,11 +23,6 @@ s_hyp.TASK_TYPE = 'ridge_regression';
 %s_hyp.ALGO = 'CVX-PRIMAL-2011';
 s_hyp.ALGO = 'our_method';
 %s_hyp.ALGO = 'NETWORK_LASSO';
-if strcmp(s_hyp.ALGO, 'our_method')
-    s_hyp.beta = 1;
-else
-    s_hyp.beta = 0;
-end
 
 s_hyp.num_neighbours =5;
 s_hyp.alpha = 10; %hyper-parameter for regularized item, 10 in default

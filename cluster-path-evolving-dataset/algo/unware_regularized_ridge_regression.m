@@ -1,7 +1,5 @@
 function[s_hyp] = unware_regularized_ridge_regression(s_hyp)
 s_hyp.Q = s_hyp.alpha*s_hyp.Q;
-s_hyp.beta = 50;
-
 s_hyp = solve_cvx_dual_problem(s_hyp);
 
 
