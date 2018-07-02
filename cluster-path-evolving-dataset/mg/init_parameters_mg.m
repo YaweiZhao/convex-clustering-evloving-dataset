@@ -30,7 +30,7 @@ else
 end
 
 s_hyp.num_neighbours =5;
-s_hyp.alpha = 10; %hyper-parameter for regularized item, 10 in default
+s_hyp.alpha = 5; %hyper-parameter for regularized item, 10 in default
 s_hyp.num_level = 1;
 
 s_hyp.num_move_data = fix(s_hyp.n/10);
