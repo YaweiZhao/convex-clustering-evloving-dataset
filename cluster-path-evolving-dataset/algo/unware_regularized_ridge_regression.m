@@ -14,7 +14,7 @@ end
 function [s_hyp]= solve_cvx_dual_problem(s_hyp)
 
 fprintf('>>>>>>>>>>>>>>>>>>>>alpha: %.2f \n', s_hyp.alpha);
-s_hyp.regnorm = 1;% regulared norm: 1, 2, inf
+s_hyp.regnorm = 2;% regulared norm: 1, 2, inf
 %s_hyp = solve_l1_constraint(s_hyp);
 s_hyp = solve_l2_constraint(s_hyp);
 %s_hyp = solve_linf_constraint_parallel(s_hyp);
