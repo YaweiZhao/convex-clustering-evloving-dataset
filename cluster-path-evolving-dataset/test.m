@@ -4,8 +4,8 @@ rng('default');
 
 %s_hyp = load_image( s_hyp.fn_image, s_hyp );
 %load data and hyper-parameters
-s_hyp = prepare_data_spacega();
-s_hyp = init_parameters_spacega(s_hyp);
+s_hyp = prepare_data_mg();
+s_hyp = init_parameters_mg(s_hyp);
 s_hyp = conduct_cluster_path( s_hyp );
 
 CLUSTER_PATH = false;
